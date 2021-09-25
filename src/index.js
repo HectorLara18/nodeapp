@@ -2,6 +2,8 @@ const express = require("express");
 const morgan = require("morgan");
 const app = express()
 const path = require("path")
+const bodyParser = require("body-parser");
+
 
 //setting
 app.set("port", 4000)
@@ -10,6 +12,8 @@ app.set("view engine", "ejs")
 
 //middlewares
 app.use(morgan("dev"))
+app.use(express.json())
+app.use(express.urlencoded())
 
 
 //routes

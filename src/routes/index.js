@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router()
+const bodyParser = require("body-parser");
 
 router.use(express.json())
 
@@ -18,12 +19,21 @@ router.get("/contact",(req,res)=>{
 })
 
 router.post("/contact",(req,res) => {
-    console.log(req.body)
-    if(req.body.password == "hlara2505"){
-        res.send({message:"SUCCESS"})
-    }else{
-        res.send({message:"ERROR"})
+    var mensaje = {
+        correo: req.body.correo,
+        mensaje: req.body.mensaje,
+        valor: req.body.prueba
     }
+    console.log(mensaje.correo)
+    res.render("formSend.ejs",{
+        title:"Contact",
+        usuario:mensaje.correo,
+    })
 })
+
+router.get("/formSend",(req,res)=>{
+    res.render("formSend.ejs",{title:"Formulario Enviado"})
+})
+
 
 module.exports = router;
