@@ -4,7 +4,9 @@ const router = express.Router()
 router.use(express.json())
 
 router.get("/",(req,res)=>{
-    res.render("index.ejs", {title: "First web app"})
+    res.render("index.ejs", 
+    {title: "First web app",
+    nombre:"Hector"})
 })
 
 router.get("/about",(req,res)=>{
@@ -12,7 +14,7 @@ router.get("/about",(req,res)=>{
 })
 
 router.get("/contact",(req,res)=>{
-    res.render("contact.ejs",{title:"Contacto"})
+    res.render("contact.ejs",{title:"Contact"})
 })
 
 router.post("/contact",(req,res) => {
