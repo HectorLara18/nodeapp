@@ -1,1 +1,15 @@
-{"orgId":"214k4biEKdRYuA3R9G1DBUjm","projectId":"prj_4h5MDAUHoIxVCyF7Lgi8JcAnVBAx"}
+{
+    "version":2,
+    "builds":[
+        {
+            "src":"./index.js",
+            "use":"@vercel/node"
+        }
+    ],
+    "routes":[
+        {
+            "src":"/(.*)",
+            "dest": "/"
+        }
+    ]
+}
